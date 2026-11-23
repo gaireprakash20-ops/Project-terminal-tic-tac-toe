@@ -21,3 +21,13 @@ describe('isGameOver', () => {
 		expect(isGameOver(board)).toBe(false);
 	});
 });
+test('returns true when X wins on the top row', () => {
+	const board = [
+		['X', 'X', 'X'],
+		['_', 'O', '_'],
+		['O', '_', '_'],
+	];
+
+	expect(isGameOver(board)).toBe(true);
+	expect(logSpy).toHaveBeenCalledWith('X has won the game!\n');
+});
